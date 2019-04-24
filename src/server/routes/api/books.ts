@@ -48,7 +48,7 @@ router.delete('/delete/:id', async (req, res, next) => {
 
 router.put('/edit/:id', async (req, res, next) => {
     try {
-        let data = await knex('books').where('books.id', req.params.id).update({title: req.body.title, author: req.body.author, price: req.body.price});
+        let data = await knex('books').where('books.id', req.params.id).update({category: req.body.category, title: req.body.title, author: req.body.author, price: req.body.price});
         res.json(data);
     } catch (error) {
         console.log(error);
