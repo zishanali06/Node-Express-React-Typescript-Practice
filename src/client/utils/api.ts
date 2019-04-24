@@ -32,7 +32,7 @@ export const json = async <T = any>(url: string, method: string = 'GET', body?: 
     }
 }
 
-export const SetAccessToken = (token: string, user: {} = { userid: undefined, role: 'guest'}) => {
+export const SetAccessToken = (token: string, user: {} = { userid: undefined, role: 'admin'}) => {
     AccessToken = token;
     User = user;
 

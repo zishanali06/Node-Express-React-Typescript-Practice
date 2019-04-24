@@ -7,5 +7,8 @@ export default {
             password: process.env.DB_PASS,
             database: process.env.DB_SCHEMA
         }
+    },
+    auth: {
+        secret: process.env.SECRET
     }
 }
