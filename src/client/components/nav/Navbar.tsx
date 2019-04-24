@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export interface NavbarProps {
 
@@ -17,6 +18,7 @@ class Navbar extends React.Component<NavbarProps, NavbarState> {
         return (
             <nav className="navbar navbar-light bg-primary">
                 <span className="navbar-brand mb-0 h1">Book Store</span>
+                <NavLink to="/add" className="navbar-brand mb-0 h1">Add New Blog</NavLink>
             </nav>
         );
     }
