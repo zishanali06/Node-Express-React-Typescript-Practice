@@ -16,7 +16,9 @@ router.get('/:id?', async (req, res, next) => {
         }
     } else {
         try {
-            let data = await knex('books').select('*');
+            let data = await knex('books')
+                                .select('books.id as id', 'categories.name as category', 'books.title as title', 'books.author as author', 'books.price as price', 'books._created as created')
+                                .join('categories', 'categories.id', '=', 'books.categoryid');
             res.json(data);
         } catch (error) {
             console.log(error);

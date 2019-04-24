@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './scss/app';
 import Navbar from './components/nav/Navbar';
-import Booklist from './components/views/Booklist';
+import Booklist from './views/Booklist';
+import Frontpage from './views/Frontpage';
 
 export default class App extends React.Component<IAppProps, IAppState> {
 
@@ -14,19 +15,21 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
 
     async componentWillMount() {
-        let r = await fetch('/api/hello');
-        let name = await r.json();
-        this.setState({ name })
+
     }
 
-    render () {
+    render() {
         return (
-                <Router>   
-                    <Navbar />
+            <Router>
+                <Navbar />
+                <main className="container">
                     <Switch>
-                        <Route exact path="/" component={Booklist} />
+                        <Route exact path="/" component={Frontpage} />
+                        <Route exact path="/books" component={Booklist} />
+                        {/* <Route exact path="/books/:id" component={Bookcard} /> */}
                     </Switch>
-                </Router>
+                </main>
+            </Router>
         )
     }
 }
