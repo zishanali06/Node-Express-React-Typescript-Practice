@@ -17,8 +17,8 @@ class Navbar extends React.Component<NavbarProps, NavbarState> {
     render() {
         return (
             <nav className="navbar navbar-light bg-primary">
-                <span className="navbar-brand mb-0 h1">Book Store</span>
-                <NavLink to="/add" className="navbar-brand mb-0 h1">Add New Blog</NavLink>
+                <NavLink to="/" className="navbar-brand mb-0 h1">Book Store</NavLink>
+                <NavLink to="/new" className="navbar-brand mb-0 h1">Add New Blog</NavLink>
             </nav>
         );
     }

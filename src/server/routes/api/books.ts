@@ -7,8 +7,10 @@ router.get('/:id?', async (req, res, next) => {
     let id = req.params.id;
     if (id) {
         try {
-            let [data] = await knex('books').select('*').where('books.id', id);
-            console.log(data.id);
+            let [data] = await knex('books')
+                                    .select('books.id as id', 'categories.name as category', 'books.title as title', 'books.author as author', 'books.price as price', 'books._created as created')
+                                    .join('categories', 'categories.id', '=', 'books.categoryid')
+                                    .where('books.id', id);
             res.json(data);
         } catch (error) {
             console.log(error);
@@ -50,7 +52,7 @@ router.delete('/delete/:id', async (req, res, next) => {
 
 router.put('/edit/:id', async (req, res, next) => {
     try {
-        let data = await knex('books').where('books.id', req.params.id).update({category: req.body.category, title: req.body.title, author: req.body.author, price: req.body.price});
+        let data = await knex('books').where('books.id', req.params.id).update({categoryid: req.body.category, title: req.body.title, author: req.body.author, price: req.body.price});
         res.json(data);
     } catch (error) {
         console.log(error);

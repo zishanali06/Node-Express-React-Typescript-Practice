@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export interface BookcardProps{
     book: {
@@ -29,7 +30,7 @@ class Bookcard extends React.Component<BookcardProps, BookcardState> {
                     <h5 className="card-title">{this.props.book.title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{this.props.book.category}</h6>
                     <p className="card-text">{this.props.book.author}</p>
-                    <a href="#" className="card-link">Card link</a>
+                    <Link to={`/books/${this.props.book.id}`} className="card-link">See Details</Link>
                     <a href="#" className="card-link">Another link</a>
                 </section>
             </section>
