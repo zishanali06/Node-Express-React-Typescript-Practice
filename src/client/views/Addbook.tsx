@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { json } from '../utils/api';
+import { json, User } from '../utils/api';
 import { RouteComponentProps } from 'react-router';
 
 export interface AddbookProps extends RouteComponentProps<{ id: string }> {
@@ -27,13 +27,17 @@ class Addbook extends React.Component<AddbookProps, AddbookState> {
     }
 
     async componentDidMount() {
-        try {
-            let catarray = await json('/api/categories');
-            this.setState({ catarray });
-        } catch (e) {
-            throw e;
-        }
-    }
+        if(!User || User.userid === null || User.role !== 'admin'){
+            this.props.history.push('/');
+        } else {
+            try {
+                let catarray = await json('/api/categories');
+                this.setState({ catarray });
+            } catch (e) {
+                throw e;
+            };
+        };
+    };
 
     handleTag = (e: React.ChangeEvent<HTMLSelectElement>) => {
         this.setState({ category: e.target.value })
@@ -71,6 +75,7 @@ class Addbook extends React.Component<AddbookProps, AddbookState> {
     render() {
         return (
             <>
+                <section className="row"><h1>Add New Book</h1></section>
                 <form>
                     <section className="form-group">
                         <label>Title</label>

@@ -40,3 +40,7 @@ export const SetAccessToken = (token: string, user: {} = { userid: undefined, ro
     localStorage.setItem('userid', User.userid);
     localStorage.setItem('role', User.role);
 }
+
+export const Logout = () => {
+    localStorage.clear();
+}

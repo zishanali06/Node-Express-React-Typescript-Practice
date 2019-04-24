@@ -18,8 +18,8 @@ class Frontpage extends React.Component<FrontpageProps, FrontpageState> {
         return ( 
             <section className="row d-flex justify-content-between mt-3">
                 <Link to="/books" className="btn btn-primary">View Books</Link>
-                <button className="btn btn-primary">Register</button>
-                <button className="btn btn-primary">Login</button>
+                <Link to="/login" className="btn btn-primary">Login</Link>
+                <Link to="/register" className="btn btn-primary">Register</Link>
             </section>
         );
     }

@@ -8,6 +8,8 @@ import Frontpage from './views/Frontpage';
 import Singlebook from './views/Singlebook';
 import Editbook from './views/Editbook';
 import Addbook from './views/Addbook';
+import Login from './views/Login';
+import Register from './views/Register';
 
 export default class App extends React.Component<IAppProps, IAppState> {
 
@@ -32,6 +34,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
                         <Route exact path="/books/:id" component={Singlebook} />
                         <Route exact path="/edit/:id" component={Editbook} />
                         <Route exact path="/new" component={Addbook} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
                     </Switch>
                 </main>
             </Router>
