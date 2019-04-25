@@ -5,7 +5,6 @@ import { CreateToken } from '../../utils/security/tokens';
 const router = express.Router();
 
 router.post('/', passport.authenticate('local'), async (req, res, next) => {
-    console.log('testing');
     try {
         let token = await CreateToken({ userid: req.user.id });
         res.json({

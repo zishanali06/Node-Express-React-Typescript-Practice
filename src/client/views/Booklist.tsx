@@ -32,7 +32,6 @@ class Booklist extends React.Component<BooklistProps, BooklistState> {
 
     async componentDidMount(){
         let books = await json('/api/books');
-        console.log(books);
         this.setState({ books });
     }
 
