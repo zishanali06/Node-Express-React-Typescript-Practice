@@ -28,7 +28,7 @@ class Addbook extends React.Component<AddbookProps, AddbookState> {
 
     async componentDidMount() {
         if(!User || User.userid === null || User.role !== 'admin'){
-            this.props.history.push('/');
+            this.props.history.push('/login');
         } else {
             try {
                 let catarray = await json('/api/categories');

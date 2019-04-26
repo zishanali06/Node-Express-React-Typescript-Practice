@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, withRouter, RouteComponentProps } from 'react-router-dom';
 import { Logout } from '../../utils/api';
 
-export interface NavbarProps {
+export interface NavbarProps extends RouteComponentProps {
 
 }
 
@@ -18,6 +18,7 @@ class Navbar extends React.Component<NavbarProps, NavbarState> {
     handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         Logout();
+        this.props.history.push('/');
     }
 
     render() {
@@ -31,4 +32,4 @@ class Navbar extends React.Component<NavbarProps, NavbarState> {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
